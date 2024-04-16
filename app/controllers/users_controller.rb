@@ -3,8 +3,9 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
-    @users = User.page(params[:page])
+    @search = User.ransack(params[:q])
+    @search.sorts = 'id desc' if @search.sorts.empty?
+    @users = @search.result.page(params[:page])
   end
 
   # GET /users/1

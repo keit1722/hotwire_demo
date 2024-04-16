@@ -8,6 +8,25 @@
     <%= link_to "New user", new_user_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
+  <%= search_form_for @search do |f| %>
+    <%= f.label :name_cont, "名前" %>
+    <%= f.search_field :name_cont %>
+
+    <%= f.label :from_cont, "出身地" %>
+    <%= f.search_field :from_cont %>
+    <%= f.submit %>
+
+    <%= link_to "クリア", users_path %>
+  <% end %>
+
+  <div>
+    <div class="flex">
+      <div class="p-4"><%= sort_link(@search, :id) %></div>
+      <div class="p-4"><%= sort_link(@search, :name) %></div>
+      <div class="p-4"><%= sort_link(@search, :from) %></div>
+    </div>
+  </div>
+
   <div id="users" class="min-w-full">
     <%= render @users %>
   </div>
