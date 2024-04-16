@@ -1,0 +1,19 @@
+<%= turbo_frame_tag user do %>
+  <div id="<%= dom_id user %>" class="flex items-center mb-1 border-t">
+    <p class="m-5">
+      <%= user.id %>
+    </p>
+
+    <p class="m-5">
+      <%= user.name %>
+    </p>
+
+    <p class="m-5">
+      <%= user.from %>
+    </p>
+
+    <%= link_to "Show this user", user, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this user", edit_user_path(user), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  </div>
+<% end %>
