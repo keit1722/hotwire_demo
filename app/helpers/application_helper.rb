@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def turbo_stream_flash
+    turbo_stream.update "flash", partial: "flash"
+  end
+
   def flash_background_color(type)
     case type.to_sym
     when :notice then "bg-green-500"
